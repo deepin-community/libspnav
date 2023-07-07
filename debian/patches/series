@@ -1,0 +1,3 @@
+ldconfig-symlink-referencing-wrong-file.patch
+add-buildflags-to-makefile.patch
+0003-Makefile.in-Also-link-math-library-lm.patch

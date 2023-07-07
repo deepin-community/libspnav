@@ -1,5 +1,62 @@
-template-repository (1.0-1) unstable; urgency=medium
+libspnav (1.0-1.1) unstable; urgency=medium
 
-  * Initial release
+  * Non-maintainer upload.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+  [ Steffen Moeller ]
+  * Added team as maintainer.
+  * Added myself as an uploader.
+
+  [ Boyuan Yang ]
+  * debian/patches/0003-Makefile.in-Also-link-math-library-lm.patch:
+    Add missing link to libm library. (Closes: #1018212)
+
+ -- Boyuan Yang <byang@debian.org>  Thu, 06 Jul 2023 20:42:15 -0400
+
+libspnav (1.0-1) unstable; urgency=medium
+
+  * Introduced Team upload next to FreeCAD with the Science-Team.
+  * New upstream version
+  * Updated patches.
+  * The previous update did not make it to the distribution. (Closes: 843802)
+  * d/rules: better clean for repeated builds
+  * d/docs: README -> README.md
+  * d/*install: pkgconfig info installed
+  * Updates by routine-update
+    - Standards-Version: 4.6.1
+    - debhelper-compat 13
+    - Add salsa-ci file
+    - Rules-Requires-Root: no
+    - watch file standard 4
+
+ -- Steffen Moeller <moeller@debian.org>  Sun, 21 Aug 2022 18:31:36 +0200
+
+libspnav (0.2.3-2) unstable; urgency=medium
+
+  * Fix FTCBFS: Let the makefile buildsystem pass cross compilers (thx Helmut Grohne). Closes: #843802
+  * Update Standards-Version to 3.9.8
+
+ -- Rodolphe Pelloux-Prayer <rodolphe@damsy.net>  Mon, 14 Nov 2016 22:14:42 +0100
+
+libspnav (0.2.3-1) unstable; urgency=medium
+
+  * Imported Upstream version 0.2.3
+  * Remove useless patch (corrected upstream).
+  * Patch Makefile to correct ldconfig symlink.
+  * Use DEP-5 copyright file format.
+  * Switch to debhelper > 9.
+  * Add Vcs-* fields.
+  * Raise the priority to optional. Closes: #762122.
+  * Remove quilt and autotools-dev dependencies.
+  * Bump standards version to 3.9.6 and remove obsolete DM-Upload-Allowed field.
+  * Disable debug symbol.
+  * Enable hardenings flags and patch Makefile.
+  * Add initial libspnav0.symbols file.
+  * New maintainer. Closes: #781185.
+
+ -- Rodolphe PELLOUX-PRAYER <rodolphe@damsy.net>  Mon, 18 May 2015 22:33:18 +0200
+
+libspnav (0.2.2-1) unstable; urgency=low
+
+  * Initial release (Closes: 513467).
+
+ -- M G Berberich <berberic@fmi.uni-passau.de>  Tue, 25 May 2010 21:20:21 +0200
