@@ -1,0 +1,21 @@
+Description: Corrects symlinks for ldconfig.
+ Symlinks should not mention build dir.
+Author: Rodolphe PELLOUX-PRAYER <rodolphe@damsy.net>
+Forwarded: no
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+Index: libspnav/Makefile.in
+===================================================================
+--- libspnav.orig/Makefile.in
++++ libspnav/Makefile.in
+@@ -55,8 +55,8 @@ install: $(lib_a) $(lib_so) $(hdr)
+ 	[ -n "$(soname)" ] && \
+ 		rm -f $(DESTDIR)$(PREFIX)/$(libdir)/$(soname) $(DESTDIR)$(PREFIX)/$(libdir)/$(devlink) && \
+ 		cd $(DESTDIR)$(PREFIX)/$(libdir) && \
+-		ln -s $(lib_so) $(soname) && \
+-		ln -s $(soname) $(devlink) || \
++		ln -s $(lib_so) $(DESTDIR)$(PREFIX)/$(libdir)/$(soname) && \
++		ln -s $(soname) $(DESTDIR)$(PREFIX)/$(libdir)/$(devlink) || \
+ 		true
+ 	for h in $(hdr); do cp -p $(srcdir)/$$h $(DESTDIR)$(PREFIX)/include/; done
+ 	mkdir -p $(DESTDIR)$(PREFIX)/share/pkgconfig

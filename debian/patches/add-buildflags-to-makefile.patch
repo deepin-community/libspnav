@@ -1,0 +1,20 @@
+Description: Add call to dpkg-buildflags for hardenings.
+Author: Rodolphe PELLOUX-PRAYER <rodolphe@damsy.net>
+Forwarded: no
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+Index: libspnav/Makefile.in
+===================================================================
+--- libspnav.orig/Makefile.in
++++ libspnav/Makefile.in
+@@ -10,8 +10,8 @@ libpaths = -L/usr/local/lib -L/usr/X11R6
+ 
+ CC ?= gcc
+ AR ?= ar
+-CFLAGS = $(opt) $(dbg) -std=c89 $(pic) -pedantic -Wall -fno-strict-aliasing $(incpaths) $(user_cflags)
+-LDFLAGS = $(libpaths) $(user_ldflags) $(xlib)
++CFLAGS = $(opt) $(dbg) -std=c89 $(pic) -pedantic -Wall -fno-strict-aliasing $(incpaths) $(user_cflags) `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS`
++LDFLAGS = $(libpaths) $(user_ldflags) $(xlib) `dpkg-buildflags --get LDFLAGS`
+ 
+ ifeq ($(shell uname -s), Darwin)
+ 	lib_so = libspnav.dylib

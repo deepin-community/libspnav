@@ -1,0 +1,22 @@
+From: Boyuan Yang <byang@debian.org>
+Date: Thu, 6 Jul 2023 20:40:13 -0400
+Subject: Makefile.in: Also link math library -lm
+
+Bug-Debian: https://bugs.debian.org/1018212
+---
+ Makefile.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile.in b/Makefile.in
+index f86a50c..2bfaec6 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -11,7 +11,7 @@ libpaths = -L/usr/local/lib -L/usr/X11R6/lib
+ CC ?= gcc
+ AR ?= ar
+ CFLAGS = $(opt) $(dbg) -std=c89 $(pic) -pedantic -Wall -fno-strict-aliasing $(incpaths) $(user_cflags) `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS`
+-LDFLAGS = $(libpaths) $(user_ldflags) $(xlib) `dpkg-buildflags --get LDFLAGS`
++LDFLAGS = $(libpaths) $(user_ldflags) $(xlib) -lm `dpkg-buildflags --get LDFLAGS`
+ 
+ ifeq ($(shell uname -s), Darwin)
+ 	lib_so = libspnav.dylib
